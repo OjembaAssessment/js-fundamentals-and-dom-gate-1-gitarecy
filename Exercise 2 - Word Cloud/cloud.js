@@ -1,7 +1,7 @@
 function createWordCloud() {
     let text = document.getElementById("myParagraph").textContent;
     let words = text.split(" ");
-  
+  //==========================================================
     // Count repeating words
     let countedWords = {};
     for (let i = 0; i < words.length; i++) {
@@ -11,13 +11,13 @@ function createWordCloud() {
       }
       countedWords[word]++;
     }
-  
+  //======================================================
     // Get the 12 most frequently occurring words.
     let mostRepeatingWords = Object.keys(countedWords).sort(function(a, b) {
       return countedWords[b] - countedWords[a];
     });
     mostRepeatingWords = mostRepeatingWords.slice(0, 13);
-  
+  //=========================================================
     // generating word cloud.
     let wordCloud = [];
     for (let i = 0; i < mostRepeatingWords.length; i++) {
@@ -28,13 +28,15 @@ function createWordCloud() {
         size: size,
       });
     }
-  
-    // Return the word cloud.
     return wordCloud;
   }
+
+//================================================
   
-  // Create the word cloud.
+  // Create the word actual word cloud.
   let newWordCloud = createWordCloud();
+
+//================================================
   
   // Printing the word cloud to the html page.
   let cloud = document.getElementById("myWordCloud");
